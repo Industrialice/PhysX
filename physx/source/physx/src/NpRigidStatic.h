@@ -80,6 +80,7 @@ public:
 	// Pose
 	virtual			void 					setGlobalPose(const PxTransform& pose, bool wake);
 	virtual			PxTransform				getGlobalPose() const;
+	virtual			PxTransform				getGlobalPoseWithoutActor() const;
 
 	//---------------------------------------------------------------------------------
 	// Miscellaneous

@@ -111,6 +111,12 @@ PxTransform NpRigidStatic::getGlobalPose() const
 	return mRigidStatic.getActor2World();
 }
 
+PxTransform NpRigidStatic::getGlobalPoseWithoutActor() const
+{
+	NP_READ_CHECK(NpActor::getOwnerScene(*this));
+	return mRigidStatic.getActor2World();
+}
+
 PxU32 physx::NpRigidStaticGetShapes(Scb::RigidStatic& rigid, void* const *&shapes)
 {
 	NpRigidStatic* a = static_cast<NpRigidStatic*>(rigid.getScRigidCore().getPxActor());

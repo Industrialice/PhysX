@@ -87,6 +87,13 @@ public:
 		return getGlobalPoseFast();
 	}
 
+	virtual PxTransform getGlobalPoseWithoutActor() const
+	{
+		const Scb::Body &body = getScbBodyFast();
+		PX_CHECK(body.getBody2Actor().p == PxVec3(PxZero) && body.getBody2Actor().q == PxQuat(PxIdentity));
+		return body.getBody2World();
+	}
+
 	virtual		void				setKinematicTarget(const PxTransform& destination);
 	virtual		bool				getKinematicTarget(PxTransform& target)	const;
 

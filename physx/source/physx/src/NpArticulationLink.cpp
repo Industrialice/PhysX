@@ -163,6 +163,15 @@ PxTransform NpArticulationLink::getGlobalPose() const
 	return getScbBodyFast().getBody2World() * getScbBodyFast().getBody2Actor().getInverse();
 }
 
+PxTransform	NpArticulationLink::getGlobalPoseWithoutActor() const
+{
+	NP_READ_CHECK(NpActor::getOwnerScene(*this));
+	PX_CHECK(getScbBodyFast().getBody2Actor().p == PxVec3(PxZero) && getScbBodyFast().getBody2Actor().q == PxQuat(PxIdentity));
+
+	//!!!AL TODO: Need to start from root and compute along the branch to reflect double buffered state of root link
+	return getScbBodyFast().getBody2World();
+}
+
 void NpArticulationLink::setLinearDamping(PxReal linearDamping)
 {
 	NP_WRITE_CHECK(NpActor::getOwnerScene(*this));

@@ -79,6 +79,7 @@ public:
 	//---------------------------------------------------------------------------------
 	// The rule is: If an API method is used somewhere in here, it has to be redeclared, else GCC whines
 	virtual			PxTransform			getGlobalPose() const = 0;
+	virtual PxTransform getGlobalPoseWithoutActor() const = 0;
 
 	//---------------------------------------------------------------------------------
 	// PxRigidBody implementation

@@ -92,6 +92,8 @@ public:
 	*/
 	virtual		PxTransform 	getGlobalPose()		const = 0;
 
+	virtual PxTransform getGlobalPoseWithoutActor() const = 0;
+
 	/**
 	\brief Method for setting an actor's pose in the world.
 

@@ -96,6 +96,7 @@ public:
 	virtual		void						setGlobalPose(const PxTransform& pose);
 	virtual		void 						setGlobalPose(const PxTransform& pose, bool autowake);
 	virtual		PxTransform					getGlobalPose() const;
+	virtual		PxTransform					getGlobalPoseWithoutActor() const;
 
 	//damping
 	virtual		void						setLinearDamping(PxReal linDamp);
